@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoApp - Java Script</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        .search {
+            position: fixed;
+            top: 5px;
+            left: 5px;
+        }
+
+        .search input {
+            width: 250px;
+            height: 25px;
+            border: none;
+        }
+
+        .resetBtn {
+            position: fixed;
+            top: 5px;
+            right: 5px;
+            padding: 5px;
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            width: 80px;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .app {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form {
+            flex-basis: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            line-height: 25px;
+            margin: 0 auto 20px auto;
+            border-radius: 50px;
+            border: 1px solid #e1e1e1;
+            padding: 5px 10px;
+
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .inputs {
+            width: 800px;
+            display: flex;
+        }
+
+        .inputs .item {
+            flex-grow: 1;
+
+        }
+
+        .inputs .number {
+            width: 15%;
+        }
+
+        .inputs .info {
+            width: 20%;
+        }
+
+        .add {
+            height: 30px;
+            border-radius: 50px;
+            border: 1px solid #e1e1e1;
+            background-color: #fff;
+            width: 200px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .positive, .negative {
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            border-radius: 50px;
+            padding: 5px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .add:hover, .item:focus-within, .number:focus-within, .info:focus-within, .resetBtn:hover, .removeBtn:hover, .positive:hover, .negative:hover {
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .15);
+        }
+
+        .amountInfo {
+            width: 50%;
+            margin: 0 auto 30px auto;
+        }
+
+        .list {
+            width: 50vw;
+            margin: 0 auto;
+            flex-grow: 1;
+        }
+
+        li {
+            border-bottom: 1px solid #e1e1e1;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li .removeBtn {
+            padding: 5px;
+            width: 60px;
+            background-color: #fff;
+            border-radius: 50px;
+            border: 1px solid #e1e1e1;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 30px 15px;
+            border: 1px solid #e1e1e1;
+            display: none;
+        }
+
+        .notification button {
+            margin: 0 5px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .notification h2 {
+            margin-bottom: 15px;
+        }
+
+        .notification button {
+            width: 100px;
+        }
+
+        .blur {
+            filter: blur(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="app">
+        <section class="search">
+            <input type="text" class="lookFor" placeholder="Szukaj po nazwie...">
+        </section>
+        <button class="resetBtn">Reset</button>
+        <form action="#">
+            <h1>Dodaj zadanie, które musisz wykonać</h1>
+            <section class="inputs">
+                <input class="item" type="text" placeholder="nazwa">
+                <input class="number" type="number" placeholder="ilość">
+                <input class="info" type="text" placeholder="dodatkowe uwagi">
+            </section>
+            <button class="add">Dodaj do listy</button>
+        </form>
+        <p class="amountInfo">Liczba wszystkich elementów: <span class="counter">0</span></p>
+        <div class="list">
+            <ul></ul>
+        </div>
+    </section>
+    <section class="notification"></section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
